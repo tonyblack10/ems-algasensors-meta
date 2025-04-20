@@ -1,0 +1,16 @@
+services:
+  algasensors-rabbitmq:
+    image: rabbitmq:3-management
+    restart: no
+    container_name: algasensors-rabbitmq
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    environment:
+      RABBITMQ_DEFAULT_USER: rabbitmq
+      RABBITMQ_DEFAULT_PASS: rabbitmq
+    volumes:
+      - algasensors-rabbitmq-data:/var/lib/rabbitmq/
+
+volumes:
+  algasensors-rabbitmq-data:
